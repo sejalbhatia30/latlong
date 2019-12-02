@@ -16,7 +16,7 @@ app.get("/",(req,res)=>{
   res.send("lol");
 })
 
-app.get("/latlong:pin",(req,res)=>{
+app.get("/latlong/:pin",(req,res)=>{
   var pin = req.params.pin;
   const uri = 'https://geocoder.api.here.com/6.2/geocode.json?searchtext=' + pin + '&app_id=gyp4TyKfaaBmNoZLYSXV&app_code=iu87RBHaPdFGpsohi0vyYw&gen=8';
   fetch(uri).then(res => res.json()).then(res => res.json(JSON.stringify(res.Response.View[0].Result[0].Location.DisplayPosition)));
