@@ -16,7 +16,7 @@ app.post('/latlong', (req, res) => {
 
   const q = encodeURIComponent(req.body.pin);
   const uri = 'https://geocoder.api.here.com/6.2/geocode.json?searchtext=' + q + '&app_id=gyp4TyKfaaBmNoZLYSXV&app_code=iu87RBHaPdFGpsohi0vyYw&gen=8';
-  fetch(uri).then(res => res.json()).then(res => console.log(JSON.stringify(res.Response.View[0].Result[0].Location.DisplayPosition)));
+  fetch(uri).then(res => res.json()).then(res => res.JSON(JSON.stringify(res.Response.View[0].Result[0].Location.DisplayPosition)));
 
 })
 
